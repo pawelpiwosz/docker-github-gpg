@@ -1,0 +1,12 @@
+[user]
+	name = github_name
+	email = github_email
+	signingkey = github_signingkey
+[core]
+  editor = vim
+[commit]
+	gpgsign = true
+[gpg]
+  program = gpg2
+[push]
+  default = simple

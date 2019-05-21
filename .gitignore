@@ -1,1 +1,4 @@
-ansible/
+pubkey.asc
+privkey.asc
+.gitconfig
+Dockerfile

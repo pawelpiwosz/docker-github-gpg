@@ -3,5 +3,9 @@ for ansible:
 1. prepare all needed sensitive files (5 plays, I think)
 2. prepare Dockerfile
 3. run Dockerfile
-4. remove temp files4. remove temp files4. remove temp files4. remove temp files
+4. remove temp files4. remove temp files4. remove temp files. remove temp files
+
+Two possibilities of run:
+1. with variables
+2. with copied (imported) files
 

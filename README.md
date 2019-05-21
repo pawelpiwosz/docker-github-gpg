@@ -21,7 +21,10 @@ docker run -ti -d \
 --name github \
 -h github \
 --restart always \
--v /home/user-name/your-repo-dir/:/repo image_name
+-v /home/user-name/your-repo-dir/:/repo github-gpg
 ```
 
-```
+### Kudos
+
+Special thanks to [Marco](https://github.com/mmatoscom/) as provider of the
+idea. And I shamelessly used his Dockerfile :) 

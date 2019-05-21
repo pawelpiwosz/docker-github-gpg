@@ -2,8 +2,8 @@
 
 echo "Build Docker image."
 
-docker build -t github .
+docker build -t github-gpg .
 
-docker images |grep "^github "
+docker images |grep "^github-gpg "
 
 echo "Build finished."

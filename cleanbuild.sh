@@ -24,7 +24,7 @@ done
 
 # Remove Docker images
 
-docker images -a | grep "^github " |awk '{print $3}' | xargs docker rmi
+docker images -a | grep "^github-gpg " |awk '{print $3}' | xargs docker rmi
 docker images purge
 
 echo "Sensitive files removed."

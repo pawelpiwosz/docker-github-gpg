@@ -10,30 +10,18 @@ your credentials, and run with your project(s) directory mounted.
 In order to build the container, use:
 
 ```
-docker build -t docker-gpg .
+docker build -t github-gpg .
 ```
 
 
 In order to run the container, use:
 
 ```
-docker run -ti -d \ 
---name github \ 
--h github \ 
---restart always \ 
+docker run -ti -d \
+--name github \
+-h github \
+--restart always \
 -v /home/user-name/your-repo-dir/:/repo image_name
 ```
 
-### This repo
-
-This repo contains Ansible playbook to build image with all credentials.
-
-In order to do it, run:
-
-```
-some command
-```
-
-```
-ansible localhost -a "hostname"
 ```

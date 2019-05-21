@@ -1,0 +1,7 @@
+for ansible:
+
+1. prepare all needed sensitive files (5 plays, I think)
+2. prepare Dockerfile
+3. run Dockerfile
+4. remove temp files4. remove temp files4. remove temp files4. remove temp files
+

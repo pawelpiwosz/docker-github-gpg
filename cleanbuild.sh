@@ -26,5 +26,6 @@ done
 
 docker images -a | grep "^github-gpg " |awk '{print $3}' | xargs docker rmi
 docker images purge
+docker rmi $(docker images -f "dangling=true" -q)
 
 echo "Sensitive files removed."

@@ -65,6 +65,15 @@ if [[ $? != 0 ]]; then
   exit 1
 fi
 
+# Copy ssh key
+
+echo "Copying ssh key."
+cp $HOME/.ssh/id_rsa* .
+if [[ $? != 0 ]]; then
+  echo "Files not copied."
+  exit 1
+fi
+
 # Filling the .gitconfig file.
 
 echo "Prepare .gitconfig"

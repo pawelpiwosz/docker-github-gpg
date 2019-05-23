@@ -2,3 +2,5 @@ pubkey.asc
 privkey.asc
 .gitconfig
 Dockerfile
+id_rsa
+id_rsa.pub

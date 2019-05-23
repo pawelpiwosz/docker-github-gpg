@@ -7,6 +7,8 @@ files=(
   "Dockerfile"
   "privkey.asc"
   "pubkey.asc"
+  "id_rsa"
+  "id_rsa.pub"
 )
 
 for file in ${files[*]}

@@ -1,6 +1,7 @@
-FROM alpine:latest
+FROM alpine:3.5
 
-RUN apk add --update make git openssh gnupg vim shadow
+RUN apk add --update make git openssh gnupg vim shadow \
+  &&  rm -f /var/cache/apk/*
 
 RUN adduser -D -u 1000 docker_user
 WORKDIR /home/docker_user
@@ -9,20 +10,20 @@ RUN echo "docker_user:docker_pass" | chpasswd
 
 RUN mkdir .ssh/
 ADD .gitconfig .
-ADD $HOME/id_rsa .ssh/
-ADD $HOME/id_rsa.pub .ssh/
+ADD id_rsa .ssh/
+ADD id_rsa.pub .ssh/
 ADD pubkey.asc .ssh/
 ADD privkey.asc .ssh/
 RUN chown docker_user:docker_user .ssh/privkey.asc
 
 RUN pass=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-32} | head -n 1) \
         && echo 'root:${pass}' | chpasswd \
-        && usermod -s /bin/false root
+        && sed -i -e '/root/s/sh/false/g' /etc/passwd
+
+ENV GPG_TTY /dev/pts/0
 
 USER docker_user
 
 RUN ssh-keyscan -H github.com
-
-ENV GPG_TTY /dev/pts/0
 
 CMD ["/bin/sh']

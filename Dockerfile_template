@@ -26,4 +26,4 @@ USER docker_user
 
 RUN ssh-keyscan -H github.com
 
-CMD ["/bin/sh']
+CMD ["/bin/sh"]

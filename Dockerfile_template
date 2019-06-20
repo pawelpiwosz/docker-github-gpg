@@ -24,6 +24,9 @@ ENV GPG_TTY /dev/pts/0
 
 USER docker_user
 
+RUN gpg --import /home/${user-name}/.ssh/pubkey.asc
+RUN gpg --batch --import /home/${user-name}/.ssh/privkey.asc
+
 RUN ssh-keyscan -H github.com
 
 CMD ["/bin/sh"]

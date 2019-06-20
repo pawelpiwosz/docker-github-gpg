@@ -14,7 +14,7 @@ ADD id_rsa .ssh/
 ADD id_rsa.pub .ssh/
 ADD pubkey.asc .ssh/
 ADD privkey.asc .ssh/
-RUN chown docker_user:docker_user .ssh/privkey.asc
+RUN chown docker_user:docker_user .ssh/*
 
 RUN pass=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-32} | head -n 1) \
         && echo 'root:${pass}' | chpasswd \
@@ -24,8 +24,8 @@ ENV GPG_TTY /dev/pts/0
 
 USER docker_user
 
-RUN gpg --import /home/${user-name}/.ssh/pubkey.asc
-RUN gpg --batch --import /home/${user-name}/.ssh/privkey.asc
+RUN gpg --import /home/docker_user/.ssh/pubkey.asc
+RUN gpg --batch --import /home/docker_user/.ssh/privkey.asc
 
 RUN ssh-keyscan -H github.com
 

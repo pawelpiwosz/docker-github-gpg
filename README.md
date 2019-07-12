@@ -34,6 +34,8 @@ in order to remove temporarly created files and image itself from your disk.
 
 ### Usage
 
+#### Linux
+
 In order to run the container, use:
 
 ```
@@ -42,6 +44,16 @@ docker run -ti -d \
 -h github \
 --restart always \
 -v /home/user-name/your-repo-dir/:/repo github-gpg
+```
+#### Windows
+
+```
+docker run -ti -d \
+--name github \
+-h github \
+--restart always \
+-u user \
+-v //c/Users/user/GIT:/home/user/GIT:rw github-gpg
 ```
 
 ### Kudos

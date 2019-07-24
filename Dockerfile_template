@@ -14,7 +14,8 @@ ADD id_rsa .ssh/
 ADD id_rsa.pub .ssh/
 ADD pubkey.asc .ssh/
 ADD privkey.asc .ssh/
-RUN chown docker_user:docker_user .ssh/*
+RUN chown docker_user:docker_user -R .ssh \
+  && chmod 0400 .ssh/id_rsa
 
 RUN pass=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-32} | head -n 1) \
         && echo 'root:${pass}' | chpasswd \
